@@ -17,7 +17,7 @@ public class Rekin
 		public static void initialize ( GameApplication start , Config config )
 			{
 				Rekin.game = start;
-				Rekin.config = config;
+				Rekin.config = Rekin.game.config;
 				Rekin.Display.initialize ( );
 				if ( Rekin.config.isFullscreen ( ) )
 					{

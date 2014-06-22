@@ -1,9 +1,7 @@
 package org.denalo.rshc.app.rgdldemo;
 
-import android.widget.*;
 import org.denalo.rshc.rekingdl.application.*;
 import org.denalo.rshc.rekingdl.system.*;
-import android.view.*;
 
 public class MainActivity extends GameApplication
 	{

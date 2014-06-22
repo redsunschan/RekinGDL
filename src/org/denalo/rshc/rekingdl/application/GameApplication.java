@@ -3,7 +3,6 @@ package org.denalo.rshc.rekingdl.application;
 import android.app.*;
 import android.os.*;
 import org.denalo.rshc.rekingdl.system.*;
-import android.view.*;
 import android.content.*;
 
 public abstract class GameApplication extends Activity

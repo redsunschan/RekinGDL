@@ -1,11 +1,11 @@
 package org.denalo.rshc.rekingdl.application;
 
-import android.graphics.*;
+import android.annotation.SuppressLint;
 import android.util.*;
 import android.view.*;
-import org.denalo.rshc.rekingdl.scene.*;
 import org.denalo.rshc.rekingdl.system.*;
 
+@SuppressLint("ViewConstructor")
 public class RenderLayer extends SurfaceView implements SurfaceHolder.Callback
 	{
 
