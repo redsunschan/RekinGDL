@@ -2,6 +2,7 @@ package org.denalo.rshc.app.rgdldemo;
 
 import org.denalo.rshc.rekingdl.application.*;
 import org.denalo.rshc.rekingdl.system.*;
+import java.io.*;
 
 public class MainActivity extends GameApplication
 	{

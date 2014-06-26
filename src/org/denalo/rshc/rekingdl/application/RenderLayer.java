@@ -47,8 +47,6 @@ public class RenderLayer extends SurfaceView implements SurfaceHolder.Callback
 		public boolean onTouchEvent ( MotionEvent event )
 			{
 				Log.w ( this.getClass ( ).getSimpleName ( ) , "Touching Coordinate: [ " + String.valueOf ( event.getX ( ) ) + " , " + String.valueOf ( event.getY ( ) ) + " ]" );
-				Rekin.touchedx = event.getX ( );
-				Rekin.touchedy = event.getY ( );
 				return super.onTouchEvent ( event );
 			}
 

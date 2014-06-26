@@ -10,9 +10,6 @@ public class Rekin
 		private static GameApplication game;
 		private static Config config;
 		private static GameScene scene;
-		
-		public static float touchedx = 0;
-		public static float touchedy = 0;
 
 		public static void initialize ( GameApplication start , Config config )
 			{
