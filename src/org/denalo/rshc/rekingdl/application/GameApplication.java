@@ -4,11 +4,13 @@ import android.app.*;
 import android.os.*;
 import org.denalo.rshc.rekingdl.system.*;
 import android.content.*;
+import android.view.*;
 
 public abstract class GameApplication extends Activity
 	{
 
 		public Config config = new Config ( );
+		protected RenderLayer view;
 
 		public abstract void initialize ( );
 
@@ -20,6 +22,54 @@ public abstract class GameApplication extends Activity
 				this.initialize ( );
 				super.onCreate ( savedInstanceState );
 				this.start ( );
+			}
+
+		@Override
+		protected void onPause ( )
+			{
+				Rekin.getScene ( ).isStart ( false );
+				super.onPause ( );
+			}
+
+		@Override
+		protected void onStop ( )
+			{
+				Rekin.getScene ( ).isStart ( false );
+				super.onStop ( );
+			}
+
+		@Override
+		protected void onRestart ( )
+			{
+				Rekin.getScene ( ).isStart ( true );
+				super.onRestart ( );
+			}
+
+		@Override
+		protected void onResume ( )
+			{
+				Rekin.getScene ( ).isStart ( true );
+				super.onResume ( );
+			}
+
+		@Override
+		protected void onStart ( )
+			{
+				Rekin.getScene ( ).isStart ( true );
+				super.onStart ( );
+			}
+
+
+
+		public void setView ( RenderLayer view )
+			{
+				this.view = view;
+				super.setContentView ( view );
+			}
+
+		public RenderLayer getView ( )
+			{
+				return this.view;
 			}
 
 		@Override

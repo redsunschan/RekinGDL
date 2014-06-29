@@ -7,7 +7,7 @@ public class Sprite
 		protected int id;
 		protected Rect src_rect;
 		protected Texture texture;
-		public Paint span;
+		protected Paint span;
 
 		public Sprite ( )
 			{
@@ -24,7 +24,6 @@ public class Sprite
 				this.span.setAntiAlias ( true );
 				this.setTexture ( texture );
 				SpriteSet.add ( this );
-
 			}
 
 		public Sprite ( Texture texture , float x , float y )
@@ -34,7 +33,6 @@ public class Sprite
 				this.span.setAntiAlias ( true );
 				this.setTexture ( texture );
 				SpriteSet.add ( this );
-
 			}
 
 		public void setId ( int id )
@@ -132,4 +130,8 @@ public class Sprite
 				return true;
 			}
 
+		public Paint getSpan ( ) {
+			return this.span;
+		}
+			
 	}

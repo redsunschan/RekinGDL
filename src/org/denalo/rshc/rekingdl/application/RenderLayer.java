@@ -18,7 +18,6 @@ public class RenderLayer extends SurfaceView implements SurfaceHolder.Callback
 		public void surfaceCreated ( SurfaceHolder holder )
 			{
 				Rekin.getScene ( ).initialize ( holder );
-				Rekin.getScene ( ).start ( );
 			}
 		@Override
 		public void surfaceChanged ( SurfaceHolder holder, int format, int width, int height )

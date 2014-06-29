@@ -16,6 +16,7 @@ public class Rekin
 				Rekin.game = start;
 				Rekin.config = Rekin.game.config;
 				Rekin.Display.initialize ( );
+				Cache.initialize ( );
 				if ( Rekin.config.isFullscreen ( ) )
 					{
 						Rekin.getGame ( ).getWindow ( ).setFlags ( WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN );
@@ -54,10 +55,11 @@ public class Rekin
 				return Rekin.config;
 			}
 
-			public static GameScene getScene ( ) {
+		public static GameScene getScene ( )
+			{
 				return Rekin.scene;
 			}
-			
+
 		public static class Display
 			{
 				public final static DisplayMetrics metrics = new DisplayMetrics ( );

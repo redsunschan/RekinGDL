@@ -1,21 +1,27 @@
 package org.denalo.rshc.rekingdl.scene;
 
 import android.graphics.*;
-import android.util.*;
 import android.view.*;
 import org.denalo.rshc.rekingdl.graphics.*;
+import org.denalo.rshc.rekingdl.system.*;
 
 public abstract class GameScene extends Thread
 	{
+		protected boolean initialized;
 		protected boolean start;
 		protected SurfaceHolder holder;
 		protected Canvas canvas;
 
 		public void initialize ( SurfaceHolder holder )
 			{
-				this.isStart ( true );
-				this.holder = holder;
-				this.create ( );
+				if ( ! this.initialized )
+					{
+						this.isStart ( true );
+						this.holder = holder;
+						this.initialized = true;
+						this.start ( );
+						this.create ( );
+					}
 			}
 
 		public abstract void create ( );
@@ -57,10 +63,10 @@ public abstract class GameScene extends Thread
 			{
 				return this.start;
 			}
-			
+
 		public void render ( Canvas canvas )
 			{
 				SpriteSet.renderAll ( canvas );
 			}
-
+			
 	}
