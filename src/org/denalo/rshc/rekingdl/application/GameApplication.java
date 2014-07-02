@@ -4,7 +4,6 @@ import android.app.*;
 import android.os.*;
 import org.denalo.rshc.rekingdl.system.*;
 import android.content.*;
-import android.view.*;
 
 public abstract class GameApplication extends Activity
 	{

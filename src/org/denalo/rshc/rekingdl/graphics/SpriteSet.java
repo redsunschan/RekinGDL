@@ -3,7 +3,6 @@ package org.denalo.rshc.rekingdl.graphics;
 import android.graphics.*;
 import android.util.*;
 import java.util.*;
-import org.denalo.rshc.rekingdl.graphics.*;
 
 public class SpriteSet
 	{

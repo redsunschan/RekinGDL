@@ -3,7 +3,6 @@ package org.denalo.rshc.rekingdl.scene;
 import android.graphics.*;
 import android.view.*;
 import org.denalo.rshc.rekingdl.graphics.*;
-import org.denalo.rshc.rekingdl.system.*;
 
 public abstract class GameScene extends Thread
 	{
