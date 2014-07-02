@@ -1,5 +1,14 @@
 package org.denalo.rshc.rekingdl.scene;
 
+<<<<<<< HEAD
+public abstract class GameScene
+{
+	public abstract void initialize ( );
+	
+	public abstract void update ( );
+	
+}
+=======
 import android.graphics.*;
 import android.view.*;
 import org.denalo.rshc.rekingdl.graphics.*;
@@ -69,3 +78,4 @@ public abstract class GameScene extends Thread
 			}
 			
 	}
+>>>>>>> e17dc039c9a78e00120613c04ca31afae7f729ad

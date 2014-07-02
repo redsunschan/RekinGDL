@@ -1,5 +1,19 @@
 package org.denalo.rshc.rekingdl.application;
 
+<<<<<<< HEAD
+import android.graphics.*;
+import android.view.*;
+import org.denalo.rshc.rekingdl.system.*;
+
+public class RenderLayer extends SurfaceView
+	{
+		public RenderLayer ( )
+			{
+				super ( Rekin.getGame ( ) );
+				this.setFocusable ( true );
+				this.getHolder ( ).addCallback ( new Renderer ( this ) );
+			}
+=======
 import android.annotation.SuppressLint;
 import android.util.*;
 import android.view.*;
@@ -50,4 +64,5 @@ public class RenderLayer extends SurfaceView implements SurfaceHolder.Callback
 			}
 
 
+>>>>>>> e17dc039c9a78e00120613c04ca31afae7f729ad
 	}

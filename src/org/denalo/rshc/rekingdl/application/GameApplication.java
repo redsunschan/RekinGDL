@@ -3,6 +3,71 @@ package org.denalo.rshc.rekingdl.application;
 import android.app.*;
 import android.os.*;
 import org.denalo.rshc.rekingdl.system.*;
+<<<<<<< HEAD
+
+public abstract class GameApplication extends Activity
+	{
+
+		protected GameConfig config = new GameConfig ( );
+		
+		protected abstract void initialize ( );
+		
+		protected abstract void main ( );
+		
+		@Override
+		protected void onCreate ( Bundle savedInstanceState )
+			{
+				this.initialize ( );
+				Rekin.initialize ( this , this.config );
+				super.onCreate ( savedInstanceState );
+				this.main ( );
+				Rekin.main ( );
+				this.setContentView ( new RenderLayer ( ) );
+			}
+
+		@Override
+		protected void onPause ( )
+			{
+				// TODO: Implement this method
+				super.onPause ( );
+			}
+
+		@Override
+		protected void onStop ( )
+			{
+				// TODO: Implement this method
+				super.onStop ( );
+			}
+
+		@Override
+		protected void onResume ( )
+			{
+				// TODO: Implement this method
+				super.onResume ( );
+			}
+
+		@Override
+		protected void onRestart ( )
+			{
+				// TODO: Implement this method
+				super.onRestart ( );
+			}
+
+		@Override
+		protected void onPostResume ( )
+			{
+				
+				super.onPostResume ( );
+			}
+
+		@Override
+		public void onBackPressed ( )
+			{
+				new ExitWindow ( );
+			}
+}
+
+=======
 import android.content.*;
 
 public abstract class GameApplication extends Activity
@@ -101,3 +166,4 @@ public abstract class GameApplication extends Activity
 				dialog.show ( );
 			}
 	}
+>>>>>>> e17dc039c9a78e00120613c04ca31afae7f729ad
