@@ -19,6 +19,15 @@ public class RenderSet
 				RenderSet.viewset.put ( view.getZ ( ) , view );
 			}
 
+		public static Viewport get ( int i )
+			{
+				if ( ! RenderSet.viewset.containsKey ( i ) )
+					{
+						RenderSet.add ( new Viewport ( i ) );
+					}
+				return RenderSet.get ( i );
+			}
+
 		public static void render ( Canvas canvas )
 			{
 				Collections.sort ( list , new Comparator<Map.Entry<Integer , Viewport>> ( ) {
@@ -31,6 +40,16 @@ public class RenderSet
 					{
 						entry.getValue ( ).render ( canvas );
 					}
+			}
+
+		public static long count ( )
+			{
+				long total = 0;
+				for ( HashMap.Entry<Integer , Viewport> entry : viewset.entrySet ( ) )
+					{
+						total += entry.getValue ( ).count ( );
+					}
+				return total;
 			}
 
 	}

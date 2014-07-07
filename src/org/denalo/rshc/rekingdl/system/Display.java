@@ -52,7 +52,7 @@ public class Display
 			{
 				Rekin.getGame ( ).getWindowManager ( ).getDefaultDisplay ( ).getMetrics ( Display.metrics );
 				Display.setMaxWidth ( Display.metrics.widthPixels );
-				Display.setMaxHeight ( Display.metrics.widthPixels );
+				Display.setMaxHeight ( Display.metrics.heightPixels );
 				if ( Rekin.getConfig ( ).getWidth ( ) > Display.getMaxWidth ( ) || Rekin.getConfig ( ).getHeight ( ) > Display.getMaxHeight ( ) )
 					{
 						Display.setWidth ( Display.getMaxWidth ( ) );
@@ -61,7 +61,7 @@ public class Display
 				else
 					{
 						Display.setWidth ( Rekin.getConfig ( ).getWidth ( ) );
-						Display.setHeight ( Rekin.getConfig ( ).getWidth ( ) );
+						Display.setHeight ( Rekin.getConfig ( ).getHeight ( ) );
 					}
 			}
 

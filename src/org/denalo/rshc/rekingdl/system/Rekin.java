@@ -1,8 +1,11 @@
 package org.denalo.rshc.rekingdl.system;
 
 import android.content.pm.*;
+import android.content.res.*;
+import android.graphics.*;
 import android.os.*;
 import android.view.*;
+import java.io.*;
 import org.denalo.rshc.rekingdl.application.*;
 import org.denalo.rshc.rekingdl.graphics.*;
 
@@ -11,6 +14,17 @@ public class Rekin
 		private static RenderLayer layer;
 		private static GameApplication game;
 		private static GameConfig config;
+		private static Canvas canvas;
+
+		public static void setCanvas ( Canvas canvas )
+			{
+				Rekin.canvas = canvas;
+			}
+
+		public static Canvas getCanvas ( )
+			{
+				return canvas;
+			}
 
 		public static void setLayer ( RenderLayer layer )
 			{
@@ -27,6 +41,7 @@ public class Rekin
 				Rekin.setGame ( game );
 				Rekin.setConfig ( config );
 				Display.initialize ( );
+				Debugger.initialize ( );
 				RenderSet.initialize ( );
 			}
 
@@ -43,20 +58,25 @@ public class Rekin
 					}
 				if ( Rekin.getConfig ( ).getScreenOrientation ( ) == Display.Orientation.Horizontal )
 					{
-						Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
+						if ( Rekin.getConfig ( ).isLockScreenOrientation ( ) )
+							{
+								Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
+							}
+						else
+							{
+								Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE );
+							}
 					}
 				else
 					{
-						Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
-					}
-
-				if ( Rekin.getConfig ( ).isLockScreenOrientation ( ) )
-					{
-						Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_LOCKED );
-					}
-				else
-					{
-						Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR );
+						if ( Rekin.getConfig ( ).isLockScreenOrientation ( ) )
+							{
+								Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
+							}
+						else
+							{
+								Rekin.getGame ( ).setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT );
+							}
 					}
 			}
 
@@ -79,4 +99,18 @@ public class Rekin
 			{
 				return game;
 			}
+
+		public static InputStream getAssets ( String name )
+			{
+				InputStream is = null;
+				AssetManager asm = Rekin.getGame ( ).getAssets ( );
+				try
+					{
+						is = asm.open ( name );
+					}
+				catch (IOException e)
+					{}
+				return is;
+			}
+
 	}

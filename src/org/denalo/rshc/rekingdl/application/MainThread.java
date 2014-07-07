@@ -1,3 +1,4 @@
+
 package org.denalo.rshc.rekingdl.application;
 
 import android.graphics.*;
@@ -36,12 +37,12 @@ public class MainThread extends Thread
 
 		public void setCanvas ( Canvas canvas )
 			{
-				this.canvas = canvas;
+				Rekin.setCanvas ( canvas );
 			}
 
 		public Canvas getCanvas ( )
 			{
-				return canvas;
+				return Rekin.getCanvas ( );
 			}
 
 		public void initialize ( SurfaceHolder holder )
@@ -53,10 +54,12 @@ public class MainThread extends Thread
 
 		public void run ( )
 			{
+				long frameCounter = 0;
+				long lastFpsTime = 0;
 				while ( this.started ( ) )
 					{
+						long requestFlag = System.currentTimeMillis ( );
 						this.canvas = null;
-						Debugger.countFrame ( );
 						try
 							{
 								this.setCanvas ( this.getHolder ( ).lockCanvas ( ) );
@@ -64,7 +67,18 @@ public class MainThread extends Thread
 									{
 										this.getCanvas ( ).drawColor ( Color.BLACK );
 										SceneManager.getCurrent ( ).update ( );
+										Debugger.updateFrames ( );
 										this.render ( this.getCanvas ( ) );
+									}
+								frameCounter++;
+
+								long delay = System.currentTimeMillis ( ) - lastFpsTime;
+								if ( delay > 1000 )
+									{
+										double FPS = ( ( (double)frameCounter ) / delay ) * 1000;
+										Debugger.setFramePerSecond ( (long)FPS );
+										frameCounter = 0;
+										lastFpsTime = System.currentTimeMillis ( );
 									}
 							}
 						finally
@@ -72,13 +86,17 @@ public class MainThread extends Thread
 								if ( this.getCanvas ( ) != null )
 									{
 										this.getHolder ( ).unlockCanvasAndPost ( this.getCanvas ( ) );
+										Debugger.setRenderTime ( System.currentTimeMillis ( ) - requestFlag );
 									}
 							}
+
 					}
 			}
 
 		public void render ( Canvas canvas )
 			{
+				Debugger.updateRenderInfo ( );
+				Debugger.printMsg ( true );
 				RenderSet.render ( canvas );
 			}
 	}

@@ -41,9 +41,14 @@ public class Viewport
 				for ( HashMap.Entry entry : spriteset.entrySet ( ) )
 					{
 						Sprite s = ( Sprite ) entry.getValue ( );
-						canvas.drawBitmap ( s.getTexture ( ), s.getX ( ) , s.getY ( ) , s.getSpan ( ) );
-						Log.w ( this.getClass().getSimpleName() , "Rendering..." );
+						canvas.drawBitmap ( s.getTexture ( ).getSrc ( ), s.getX ( ) , s.getY ( ) , s.getSpan ( ) );
+						Log.w ( this.getClass ( ).getSimpleName ( ) , "Rendering..." );
 					}
+			}
+
+		public long count ( )
+			{
+				return this.spriteset.size ( );
 			}
 
 	}

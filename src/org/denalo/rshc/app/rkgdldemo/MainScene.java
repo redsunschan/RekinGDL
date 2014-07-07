@@ -10,37 +10,29 @@ public class MainScene extends GameScene
 	{
 
 		Viewport view;
-		Viewport view2;
 		Sprite robot;
 		Sprite robot2;
-		int i = 0;
 
 		@Override
 		public void initialize ( )
 			{
 				view = new Viewport ( 10 );
-				view2 = new Viewport ( 0 );
-				robot = new Sprite ( view );
-				robot.setTexture ( BitmapFactory.decodeResource ( Rekin.getGame ( ).getResources ( ) , R.drawable.ic_launcher ) );
-				robot.setX ( 20 );
-				robot.setY ( 50 );
+				Viewport view2 = new Viewport ( 11 );
+				robot = new Sprite ( this.view );
+				robot.setTexture ( new Texture ( "ic_launcher" ) );
+				robot.setX ( - ( Display.getWidth ( ) / 2 ) );
+				robot.setY ( 0 );
 				robot2 = new Sprite ( view2 );
-				robot2.setTexture ( BitmapFactory.decodeResource ( Rekin.getGame ( ).getResources ( ) , R.drawable.ic_launcher ) );
-				robot2.setX ( 35 );
-				robot2.setY ( 50 );
-				Log.wtf ( this.getClass ( ).getSimpleName ( ) , "Initialized..." );
+				robot2.setTexture ( new Texture ( R.drawable.ic_launcher ) );
+				robot2.setX ( Display.getWidth ( ) / 2 );
+				robot2.setY ( 0 );
 			}
 
 		@Override
 		public void update ( )
 			{
-				Log.wtf ( this.getClass ( ).getSimpleName ( ) , "Updating..." );
-				i+=6;
-				robot.setX ( i );
-				if ( robot.getX ( ) == Display.getWidth ( ) / 2 )
-					{
-						SceneManager.call ( new SecondScene ( ) );
-					}
+				robot.move ( 1 , 0 );
+				robot2.move ( -3 , 0 );
 			}
 
 	}
